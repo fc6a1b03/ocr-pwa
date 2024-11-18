@@ -1,7 +1,8 @@
 FROM node:16 AS builder
 WORKDIR /usr/src
 COPY . .
-RUN npm i pnpm -g && pnpm install && pnpm run build
+RUN curl -fsSL https://get.pnpm.io/v6.0.js | node - add --global pnpm
+RUN pnpm install && pnpm run build
 
 # =============================================================
 
