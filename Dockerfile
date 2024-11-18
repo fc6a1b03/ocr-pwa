@@ -2,7 +2,7 @@ FROM node:20 AS builder
 WORKDIR /usr/src
 COPY . .
 RUN npm install -g pnpm
-RUN pnpm install --verbose && pnpm run build --verbose
+RUN pnpm install && pnpm run build
 
 # =============================================================
 
