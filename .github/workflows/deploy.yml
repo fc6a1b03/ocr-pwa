@@ -1,6 +1,9 @@
-name: Build and Publish Docker Image
+name: Build 和 Publish Docker Image
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -33,7 +36,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Version extracted: $VERSION"
 
-      - name: Build and push Docker image
+      - name: Build 和 push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
